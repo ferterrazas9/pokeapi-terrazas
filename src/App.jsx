@@ -1,0 +1,28 @@
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import Footer from './components/shared/Footer'
+import Home from './pages/Home'
+import Pokedex from './pages/Pokedex'
+import PokedexById from './pages/PokedexById'
+import ProtectedRoutes from './pages/ProtectedRoutes'
+import CardPoke from './components/pokedex/CardPoke'
+
+
+function App() {
+
+  return (
+    <div className="App">
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path='/pokedex' element={<Pokedex />} />
+          <Route path='/pokedex/:id' element={<PokedexById />} />
+        </Route>
+      </Routes>
+      <Footer />
+    </div>
+  )
+}
+
+export default App
